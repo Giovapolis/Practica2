@@ -1,9 +1,12 @@
 package practica2;
 
+import utilidades.*;
+
 public class Practica2 {
+    public static Conectar conexion = new Conectar();
 
     public static void main(String[] args) {
-        System.out.println("Hola Mundo XD");
+        conexion.conexion();
     }
     
 }
