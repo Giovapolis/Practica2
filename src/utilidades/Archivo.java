@@ -1,8 +1,7 @@
 package utilidades;
 
 import java.awt.Desktop;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -30,6 +29,5 @@ public class Archivo {
         }
         return ruta;
     }
-
-    
+   
 }
