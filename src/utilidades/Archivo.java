@@ -17,7 +17,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Archivo {
 
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Formato de intercabio de archivos JPEG", "jpg", "jpeg");
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Formato de intercambio de archivos JPEG", "jpg", "jpeg");
 
     public void abrirarchivo(String archivo) {
         try {
