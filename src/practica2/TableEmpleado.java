@@ -39,7 +39,7 @@ public class TableEmpleado extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {"Manuel", "Villanueva", "Serrano"}
             },
             new String [] {
                 "Nombre", "Paterno", "Materno"
@@ -51,6 +51,11 @@ public class TableEmpleado extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -85,6 +90,21 @@ public class TableEmpleado extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        recibos r = new recibos();
+        
+        int select = jTable1.rowAtPoint(evt.getPoint());
+        String nombre = String.valueOf(jTable1.getValueAt(select, 0));
+        String paterno = String.valueOf(jTable1.getValueAt(select, 1));
+        String materno = String.valueOf(jTable1.getValueAt(select, 2));
+        r.jTextFieldNombre.setText(nombre);
+        r.jTextFieldaterno.setText(paterno);
+        r.jTextFieldMaterno.setText(materno);
+        TableEmpleado.this.setVisible(false);
+        r.setVisible(true);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
