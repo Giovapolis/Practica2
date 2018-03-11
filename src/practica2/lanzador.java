@@ -4,10 +4,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import utilidades.Conectar;
 
 public class lanzador {
     public static menu menu_p = new menu();
     public static recibos generar = new recibos();
+    public static Conectar conexion = new Conectar();
+    public static Consultas consulta = new Consultas();
+    public static eliminaEmpleados elim_emp = new eliminaEmpleados();
+    public static altasEmpleados altas = new altasEmpleados();
     
     //Clase que inicia todo el proyecto
     public static void main(String args[]){

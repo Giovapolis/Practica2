@@ -26,13 +26,10 @@ public class Conectar {
             System.err.println(e);
         }
     }
-     /**
-     *
-     * @return
-     */
+    
     public Connection conectado(){
       return con;
-}
+    }
 
     public void desconectar(){
       con = null;
