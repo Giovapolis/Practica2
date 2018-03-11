@@ -73,13 +73,10 @@ public class Empleado {
         con = new Conectar();
     }
     
-        public ArrayList ConsultaPa(JTable tabla) throws Exception {
+        public ArrayList ConsultaEmpleado(JTable tabla) throws Exception {
         ArrayList<Object[]> data = new ArrayList<>();
         try {
-            PreparedStatement pstm = con.conectado().prepareStatement("SELECT ID, "
-                    + "NOMEMPRESA, FECHAINGRESO, NOMBRE, APATERNO, AMATERNO, EDAD, "
-                    + "TEL, CEL, CURP, RFC, CORREO, CARGO, CALLE, NUM_INT, NUM_EXT, "
-                    + "COLONIA, MUNICIPIO, ESTADO FROM EMPLEADO");
+            PreparedStatement pstm = con.conectado().prepareStatement("SELECT * FROM EMPLEADO");
             ResultSet rst = pstm.executeQuery();
             ResultSetMetaData rsm = rst.getMetaData();
 
@@ -99,7 +96,7 @@ public class Empleado {
             //Desconexion de la BD
             con.desconectar();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en la base de Datos Consulta Paciente datos", "Aceptar", 1);
+            JOptionPane.showMessageDialog(null, "Error en la base de Datos Consulta eMPLEADOS", "Aceptar", 1);
         }
         return data;
     }

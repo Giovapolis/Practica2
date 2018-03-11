@@ -23,7 +23,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
-        empleado.ConsultaPa(jTableEmpleado);
+        empleado.ConsultaEmpleado(jTableEmpleado);
     }
 
     /**
@@ -52,7 +52,7 @@ public class TableEmpleado extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

@@ -6,20 +6,32 @@ import javax.swing.*;
 
 public class Conectar {
      
+    private String bd = "nomina";
+    private String user = "root";
+    private String password = "";
+    private String url = "jdbc:mysql://localhost/"+bd;
     Connection con = null;
 	
-    public Connection conexion(){
-        try{
+    //Constructor
+    public Conectar(){
+        try {
+            //Obtener el driver para mysql
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/Practica2","root","");//Conexión con usuario y contraseña
-            JOptionPane.showMessageDialog(null, "Conexion Establecida");
-            return con;
-        }catch(ClassNotFoundException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error\n"+e);
-            return null;
+            //Obtenemos la conexion
+            con = DriverManager.getConnection(url,user,password);
+            if (con!=null) {
+                System.out.println("Conexion a "+bd);
+            }
+        } catch (SQLException e) {
+            System.err.println(e);
+        } catch (ClassNotFoundException e){
+            System.err.println(e);
         }
     }
-     
+     /**
+     *
+     * @return
+     */
     public Connection conectado(){
       return con;
 }
@@ -28,6 +40,5 @@ public class Conectar {
       con = null;
       System.out.println("conexion terminada");
 
-    } 
-     
+    }  
 }
