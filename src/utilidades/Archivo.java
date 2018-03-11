@@ -8,6 +8,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Archivo {
 
     private FileNameExtensionFilter filter = new FileNameExtensionFilter("Formato de intercambio de archivos JPEG", "jpg", "jpeg");
+    private FileNameExtensionFilter filterE = new FileNameExtensionFilter("Archivos de Excel", "xls");
 
     public void abrirarchivo(String archivo) {
         try {
@@ -30,4 +31,14 @@ public class Archivo {
         return ruta;
     }
    
+    public String SelectorExcel() {
+        String ruta = null;
+        JFileChooser jFileChooser3 = new JFileChooser();
+        jFileChooser3.setFileFilter(filterE);
+        int option = jFileChooser3.showOpenDialog(jFileChooser3);
+        if (option == JFileChooser.APPROVE_OPTION) {
+            ruta = jFileChooser3.getSelectedFile().toString();
+        }
+        return ruta;
+    }
 }
