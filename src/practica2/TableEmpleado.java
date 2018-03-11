@@ -5,6 +5,7 @@
  */
 package practica2;
 
+import com.placeholder.PlaceHolder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utilidades.Empleado;
@@ -15,15 +16,19 @@ import utilidades.Empleado;
  */
 public class TableEmpleado extends javax.swing.JFrame {
 
+    PlaceHolder holder;
     utilidades.Empleado empleado = new Empleado();
+
     /**
      * Creates new form TableEmpleado
      */
     public TableEmpleado() throws Exception {
         initComponents();
-        setLocationRelativeTo(null);
-        setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
+        holder = new PlaceHolder(jTextFieldBuscar, "RFC...");
+        jTableEmpleado.requestFocus();
+        //setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
         empleado.ConsultaEmpleado(jTableEmpleado);
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,6 +43,9 @@ public class TableEmpleado extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmpleado = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldBuscar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -66,20 +74,37 @@ public class TableEmpleado extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableEmpleado);
 
+        jLabel1.setText("Buscar Empleado:");
+
+        jButton1.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -100,16 +125,16 @@ public class TableEmpleado extends javax.swing.JFrame {
     private void jTableEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadoMouseClicked
         // TODO add your handling code here:
         recibos r = new recibos();
-        
         int select = jTableEmpleado.rowAtPoint(evt.getPoint());
-        String nombre = String.valueOf(jTableEmpleado.getValueAt(select, 0));
-        String paterno = String.valueOf(jTableEmpleado.getValueAt(select, 1));
-        String materno = String.valueOf(jTableEmpleado.getValueAt(select, 2));
+        String nombre = String.valueOf(jTableEmpleado.getValueAt(select, 3));
+        String paterno = String.valueOf(jTableEmpleado.getValueAt(select, 4));
+        String materno = String.valueOf(jTableEmpleado.getValueAt(select, 5));
         r.jTextFieldNombre.setText(nombre);
         r.jTextFieldaterno.setText(paterno);
         r.jTextFieldMaterno.setText(materno);
         TableEmpleado.this.setVisible(false);
         r.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jTableEmpleadoMouseClicked
 
     /**
@@ -119,7 +144,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -152,8 +177,11 @@ public class TableEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableEmpleado;
+    private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
 }
