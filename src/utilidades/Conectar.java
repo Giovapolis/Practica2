@@ -6,22 +6,28 @@ import javax.swing.*;
 
 public class Conectar {
      
-    Connection conecta = null;
+    Connection con = null;
 	
     public Connection conexion(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conecta = DriverManager.getConnection("jdbc:mysql://localhost/Practica2","root","");//Conexión con usuario y contraseña
+            con = DriverManager.getConnection("jdbc:mysql://localhost/Practica2","root","");//Conexión con usuario y contraseña
             JOptionPane.showMessageDialog(null, "Conexion Establecida");
-            return conecta;
+            return con;
         }catch(ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Error\n"+e);
             return null;
         }
     }
      
-    public Connection Obtenerconexion(){
-       return conecta;
-    }
+    public Connection conectado(){
+      return con;
+}
+
+    public void desconectar(){
+      con = null;
+      System.out.println("conexion terminada");
+
+    } 
      
 }

@@ -5,19 +5,25 @@
  */
 package practica2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utilidades.Empleado;
+
 /**
  *
  * @author mvillanuevas
  */
 public class TableEmpleado extends javax.swing.JFrame {
 
+    utilidades.Empleado empleado = new Empleado();
     /**
      * Creates new form TableEmpleado
      */
-    public TableEmpleado() {
+    public TableEmpleado() throws Exception {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);
+        setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
+        empleado.ConsultaPa(jTableEmpleado);
     }
 
     /**
@@ -31,34 +37,34 @@ public class TableEmpleado extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableEmpleado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEmpleado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Manuel", "Villanueva", "Serrano"}
+
             },
             new String [] {
-                "Nombre", "Paterno", "Materno"
+                "Id", "Empresa", "Fecha de ingreso", "Nombre", "Paterno", "Materno", "Edad", "Telefono", "Celular", "Curp", "RFC", "Correo", "Cargo", "Calle", "Num Int", "Num Ext", "Colonia", "Municipio", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                jTableEmpleadoMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableEmpleado);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,14 +72,14 @@ public class TableEmpleado extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -91,20 +97,20 @@ public class TableEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jTableEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadoMouseClicked
         // TODO add your handling code here:
         recibos r = new recibos();
         
-        int select = jTable1.rowAtPoint(evt.getPoint());
-        String nombre = String.valueOf(jTable1.getValueAt(select, 0));
-        String paterno = String.valueOf(jTable1.getValueAt(select, 1));
-        String materno = String.valueOf(jTable1.getValueAt(select, 2));
+        int select = jTableEmpleado.rowAtPoint(evt.getPoint());
+        String nombre = String.valueOf(jTableEmpleado.getValueAt(select, 0));
+        String paterno = String.valueOf(jTableEmpleado.getValueAt(select, 1));
+        String materno = String.valueOf(jTableEmpleado.getValueAt(select, 2));
         r.jTextFieldNombre.setText(nombre);
         r.jTextFieldaterno.setText(paterno);
         r.jTextFieldMaterno.setText(materno);
         TableEmpleado.this.setVisible(false);
         r.setVisible(true);
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_jTableEmpleadoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -136,7 +142,11 @@ public class TableEmpleado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TableEmpleado().setVisible(true);
+                try {
+                    new TableEmpleado().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(TableEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -144,6 +154,6 @@ public class TableEmpleado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableEmpleado;
     // End of variables declaration//GEN-END:variables
 }
