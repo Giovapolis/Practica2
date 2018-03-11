@@ -26,7 +26,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         initComponents();
         holder = new PlaceHolder(jTextFieldBuscar, "RFC...");
         jTableEmpleado.requestFocus();
-        //setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
+        setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
         empleado.ConsultaEmpleado(jTableEmpleado);
         setLocationRelativeTo(null);
     }
@@ -85,7 +85,7 @@ public class TableEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1349, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -104,7 +104,7 @@ public class TableEmpleado extends javax.swing.JFrame {
                     .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
