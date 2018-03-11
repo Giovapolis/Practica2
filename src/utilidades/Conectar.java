@@ -2,7 +2,6 @@
 package utilidades;
 
 import java.sql.*;
-import javax.swing.*;
 
 public class Conectar {
      
