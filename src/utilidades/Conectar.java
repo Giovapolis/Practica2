@@ -1,4 +1,3 @@
-//Funcion de conexion a la base de datos MySQL
 package utilidades;
 
 import java.sql.*;
