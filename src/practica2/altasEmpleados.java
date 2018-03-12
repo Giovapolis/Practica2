@@ -12,6 +12,8 @@ public class altasEmpleados extends javax.swing.JFrame {
 
     public altasEmpleados() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -58,8 +60,9 @@ public class altasEmpleados extends javax.swing.JFrame {
         btnRegistro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Altas");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setText("Altas");
 

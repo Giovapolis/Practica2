@@ -7,6 +7,8 @@ public class menu extends javax.swing.JFrame {
 
     public menu() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -138,11 +140,13 @@ public class menu extends javax.swing.JFrame {
     private void empleado_alta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_alta1ActionPerformed
         this.dispose();
         lanzador.elim_emp.setVisible(true);
+        dispose();
     }//GEN-LAST:event_empleado_alta1ActionPerformed
 
     private void empleado_altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_altaActionPerformed
         this.dispose();
         lanzador.altas.setVisible(true);
+        dispose();
     }//GEN-LAST:event_empleado_altaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
