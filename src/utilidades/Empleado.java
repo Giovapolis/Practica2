@@ -91,7 +91,7 @@ public class Empleado {
             //Desconexion de la BD
             con.desconectar();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en la base de Datos Consulta eMPLEADOS", "Aceptar", 1);
+            JOptionPane.showMessageDialog(null, "Error en la base de Datos Consulta EMPLEADOS", "Aceptar", 1);
         }
         return data;
     }

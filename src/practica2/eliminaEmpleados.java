@@ -84,6 +84,7 @@ public class eliminaEmpleados extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
+        tbl_emp.setModel( lanzador.consulta.Consulta("empleado") );
         lanzador.menu_p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
