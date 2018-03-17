@@ -37,6 +37,7 @@ CREATE TABLE Recibo(
 	IDrecibo INT AUTO_INCREMENT,
 	IDempleado INT,
 	IDsueldo INT,
+	LOGO LONGBLOB,
 	PRIMARY KEY(IDrecibo),
 	FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado)
 );
