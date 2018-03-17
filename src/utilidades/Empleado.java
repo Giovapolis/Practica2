@@ -71,7 +71,8 @@ public class Empleado {
     public ArrayList ConsultaEmpleado(JTable tabla) throws Exception {
         ArrayList<Object[]> data = new ArrayList<>();
         try {
-            PreparedStatement pstm = con.conectado().prepareStatement("SELECT * FROM EMPLEADO");
+            PreparedStatement pstm = con.conectado().prepareStatement("SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
+                    + "ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO");
             ResultSet rst = pstm.executeQuery();
             ResultSetMetaData rsm = rst.getMetaData();
 

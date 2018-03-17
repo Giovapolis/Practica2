@@ -7,7 +7,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Archivo {
 
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Formato de intercambio de archivos JPEG", "jpg", "jpeg");
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg","png");
     private FileNameExtensionFilter filterE = new FileNameExtensionFilter("Archivos de Excel", "xls");
 
     public void abrirarchivo(String archivo) {

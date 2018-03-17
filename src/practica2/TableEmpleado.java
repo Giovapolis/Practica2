@@ -56,11 +56,11 @@ public class TableEmpleado extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Empresa", "Fecha de ingreso", "Nombre", "Paterno", "Materno", "Edad", "Telefono", "Celular", "Curp", "RFC", "Correo", "Cargo", "Calle", "Num Int", "Num Ext", "Colonia", "Municipio", "Estado"
+                "Id", "Empresa", "Fecha de ingreso", "Nombre", "Paterno", "Materno", "Edad", "Telefono", "Celular", "Curp", "RFC", "Correo", "Cargo", "Calle", "Num Int", "Num Ext", "Colonia", "Municipio", "Estado", "Dias Trabajados", "Faltas"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -126,12 +126,25 @@ public class TableEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
         recibos r = new recibos();
         int select = jTableEmpleado.rowAtPoint(evt.getPoint());
+        String id = String.valueOf(jTableEmpleado.getValueAt(select, 0));
+        String empresa = String.valueOf(jTableEmpleado.getValueAt(select, 1));        
+        String ingreso = String.valueOf(jTableEmpleado.getValueAt(select, 2));        
         String nombre = String.valueOf(jTableEmpleado.getValueAt(select, 3));
         String paterno = String.valueOf(jTableEmpleado.getValueAt(select, 4));
         String materno = String.valueOf(jTableEmpleado.getValueAt(select, 5));
+        String rfc = String.valueOf(jTableEmpleado.getValueAt(select, 10));
+        String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
+        String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
+        
+        r.jTextFieldId.setText(id);
+        r.jTextFieldEmpresa.setText(empresa);
+        r.jTextFieldFingreso.setText(ingreso);
         r.jTextFieldNombre.setText(nombre);
         r.jTextFieldaterno.setText(paterno);
         r.jTextFieldMaterno.setText(materno);
+        r.jTextFieldRFC.setText(rfc);
+        r.jTextFieldDiastrab.setText(dtrab);
+        r.jTextFieldFaltas.setText(faltas);
         TableEmpleado.this.setVisible(false);
         r.setVisible(true);
         dispose();
