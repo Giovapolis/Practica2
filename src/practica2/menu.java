@@ -72,7 +72,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(empleado_alta)
                 .addGap(18, 18, 18)
                 .addComponent(empleado_alta1)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +106,7 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(ver_reci)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,7 +134,8 @@ public class menu extends javax.swing.JFrame {
     private void genera_reciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genera_reciActionPerformed
         //Acciones de boton genera_reci
         this.dispose();
-        lanzador.generar.setVisible(true);
+        OpcionesImpresion imp = new OpcionesImpresion();
+        imp.setVisible(true);
     }//GEN-LAST:event_genera_reciActionPerformed
 
     private void empleado_alta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_alta1ActionPerformed

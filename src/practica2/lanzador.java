@@ -8,7 +8,7 @@ import utilidades.Conectar;
 
 public class lanzador {
     public static menu menu_p = new menu();
-    public static recibos generar = new recibos();
+    public static reciboA6 generar = new reciboA6();
     public static Conectar conexion = new Conectar();
     public static Consultas consulta = new Consultas();
     public static eliminaEmpleados elim_emp = new eliminaEmpleados();

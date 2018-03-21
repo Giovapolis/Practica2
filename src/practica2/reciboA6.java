@@ -16,9 +16,9 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import utilidades.*;
 
-public class recibos extends javax.swing.JFrame {
+public class reciboA6 extends javax.swing.JFrame {
     String logo;
-    public recibos() {
+    public reciboA6() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -313,10 +313,11 @@ public class recibos extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             TableEmpleado tabla = new TableEmpleado();
+            tabla.Check(1);
             tabla.setVisible(true);
             dispose();
         } catch (Exception ex) {
-            Logger.getLogger(recibos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(reciboA6.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 

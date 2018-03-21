@@ -26,6 +26,7 @@ public class Utileria {
     private String faltas;
     private String Empresa;
     private String LogoEmp;
+    private int check;
     
     public Utileria(){
         
@@ -136,5 +137,13 @@ public class Utileria {
     public void setLogoEmp(String LogoEmp) {
         this.LogoEmp = LogoEmp;
     }    
+
+    public int getCheck() {
+        return check;
+    }
+
+    public void setCheck(int check) {
+        this.check = check;
+    }
     
 }

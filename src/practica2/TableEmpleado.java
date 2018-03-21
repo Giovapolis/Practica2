@@ -18,6 +18,7 @@ public class TableEmpleado extends javax.swing.JFrame {
 
     PlaceHolder holder;
     utilidades.Empleado empleado = new Empleado();
+    Utileria u;
 
     /**
      * Creates new form TableEmpleado
@@ -29,6 +30,11 @@ public class TableEmpleado extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
         empleado.ConsultaEmpleado(jTableEmpleado);
         setLocationRelativeTo(null);
+        u = new Utileria();
+    }
+
+    public void Check(int c) {
+        u.setCheck(c);
     }
 
     /**
@@ -124,30 +130,57 @@ public class TableEmpleado extends javax.swing.JFrame {
 
     private void jTableEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadoMouseClicked
         // TODO add your handling code here:
-        recibos r = new recibos();
+        
         int select = jTableEmpleado.rowAtPoint(evt.getPoint());
         String id = String.valueOf(jTableEmpleado.getValueAt(select, 0));
-        String empresa = String.valueOf(jTableEmpleado.getValueAt(select, 1));        
-        String ingreso = String.valueOf(jTableEmpleado.getValueAt(select, 2));        
+        String empresa = String.valueOf(jTableEmpleado.getValueAt(select, 1));
+        String ingreso = String.valueOf(jTableEmpleado.getValueAt(select, 2));
         String nombre = String.valueOf(jTableEmpleado.getValueAt(select, 3));
         String paterno = String.valueOf(jTableEmpleado.getValueAt(select, 4));
         String materno = String.valueOf(jTableEmpleado.getValueAt(select, 5));
+        String edad = String.valueOf(jTableEmpleado.getValueAt(select, 6));
+        String curp = String.valueOf(jTableEmpleado.getValueAt(select, 9));
         String rfc = String.valueOf(jTableEmpleado.getValueAt(select, 10));
+        String correo = String.valueOf(jTableEmpleado.getValueAt(select, 11));
         String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
         String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
         
-        r.jTextFieldId.setText(id);
-        r.jTextFieldEmpresa.setText(empresa);
-        r.jTextFieldFingreso.setText(ingreso);
-        r.jTextFieldNombre.setText(nombre);
-        r.jTextFieldaterno.setText(paterno);
-        r.jTextFieldMaterno.setText(materno);
-        r.jTextFieldRFC.setText(rfc);
-        r.jTextFieldDiastrab.setText(dtrab);
-        r.jTextFieldFaltas.setText(faltas);
-        TableEmpleado.this.setVisible(false);
-        r.setVisible(true);
-        dispose();
+        System.out.println(u.getCheck());
+        
+        if (u.getCheck() == 1) {
+            
+            reciboA6 r = new reciboA6();
+            r.jTextFieldId.setText(id);
+            r.jTextFieldEmpresa.setText(empresa);
+            r.jTextFieldFingreso.setText(ingreso);
+            r.jTextFieldNombre.setText(nombre);
+            r.jTextFieldaterno.setText(paterno);
+            r.jTextFieldMaterno.setText(materno);
+            r.jTextFieldRFC.setText(rfc);
+            r.jTextFieldDiastrab.setText(dtrab);
+            r.jTextFieldFaltas.setText(faltas);
+            TableEmpleado.this.setVisible(false);
+            r.setVisible(true);
+            dispose();
+            
+        }else if(u.getCheck() == 2){
+            reciboA5 r = new reciboA5();
+            r.jTextFieldId.setText(id);
+            r.jTextFieldEmpresa.setText(empresa);
+            r.jTextFieldFingreso.setText(ingreso);
+            r.jTextFieldNombre.setText(nombre);
+            r.jTextFieldaterno.setText(paterno);
+            r.jTextFieldMaterno.setText(materno);
+            r.jTextFieldEdad.setText(edad);
+            r.jTextFieldRFC.setText(rfc);
+            r.jTextFieldCURP.setText(curp);
+            r.jTextFielCorreo.setText(correo);
+            r.jTextFieldDiastrab.setText(dtrab);
+            r.jTextFieldFaltas.setText(faltas);
+            TableEmpleado.this.setVisible(false);
+            r.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jTableEmpleadoMouseClicked
 
     /**
