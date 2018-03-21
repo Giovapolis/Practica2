@@ -15,7 +15,7 @@ import net.sf.jasperreports.engine.JRField;
  *
  * @author mvillanuevas
  */
-public class AsistentesDataSource implements JRDataSource {
+public class EmpleadosDataSource implements JRDataSource {
 
     private List<Utileria> RegEmpleado = new ArrayList<Utileria>();
     private int indiceParticipanteActual = -1;

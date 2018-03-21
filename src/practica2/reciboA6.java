@@ -333,7 +333,7 @@ public class reciboA6 extends javax.swing.JFrame {
         // TODO add your handling code here:
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
-        AsistentesDataSource datasource = new AsistentesDataSource();
+        EmpleadosDataSource datasource = new EmpleadosDataSource();
         Utileria asist;
         asist = new Utileria(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),
