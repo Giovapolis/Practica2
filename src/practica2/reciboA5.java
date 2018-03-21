@@ -380,16 +380,16 @@ public class reciboA5 extends javax.swing.JFrame {
         // TODO add your handling code here:
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
-        EmpleadosDataSource datasource = new EmpleadosDataSource();
-        Utileria asist;
-        asist = new Utileria(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
-                jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),
-                jTextFieldRFC.getText(), (float) 200, jTextFieldDiastrab.getText(), jTextFieldFaltas.getText(),
-        jTextFieldEmpresa.getText(),logo);
+        EmpleadosDataSourceA5 datasource = new EmpleadosDataSourceA5();
+        UtileriaA5 asist;
+        asist = new UtileriaA5(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
+                jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),jTextFieldEdad.getText(),
+                jTextFieldRFC.getText(), jTextFieldCURP.getText(),jTextFielCorreo.getText(),(float) 200, jTextFieldDiastrab.getText(), 
+                jTextFieldFaltas.getText(),jTextFieldEmpresa.getText(),logo);
         datasource.addAsistente(asist);
 
         try {
-            inputStream = new FileInputStream("src/practica2/A6.jrxml");
+            inputStream = new FileInputStream("src/practica2/A5.jrxml");
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "***Error al leer el fichero de carga jasper report " + ex.getMessage());
         }
@@ -399,13 +399,13 @@ public class reciboA5 extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
 
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/Recibo.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/ReciboA5.pdf");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
         Archivo abrir = new Archivo();
-        abrir.abrirarchivo("src/practica2/Recibo.pdf");
+        abrir.abrirarchivo("src/practica2/ReciboA5.pdf");
     }//GEN-LAST:event_confirmaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,7 +18,7 @@ public class TableEmpleado extends javax.swing.JFrame {
 
     PlaceHolder holder;
     utilidades.Empleado empleado = new Empleado();
-    Utileria u;
+    UtileriaA6 u;
 
     /**
      * Creates new form TableEmpleado
@@ -30,7 +30,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
         empleado.ConsultaEmpleado(jTableEmpleado);
         setLocationRelativeTo(null);
-        u = new Utileria();
+        u = new UtileriaA6();
     }
 
     public void Check(int c) {

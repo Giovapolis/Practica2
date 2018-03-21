@@ -13,7 +13,7 @@ import java.io.IOException;
  *
  * @author mvillanuevas
  */
-public class Utileria {
+public class UtileriaA6 {
     
     private int id;
     private String fechaIngeso;
@@ -28,12 +28,12 @@ public class Utileria {
     private String LogoEmp;
     private int check;
     
-    public Utileria(){
+    public UtileriaA6(){
         
     }
 
-    public Utileria(int id, String fechaIngeso, String nombre, String materno, 
-            String paterno, String RFC, float sueldo, String diastrab, 
+    public UtileriaA6(int id, String fechaIngeso, String nombre, String paterno, 
+            String materno, String RFC, float sueldo, String diastrab, 
             String faltas, String Empresa, String LogoEmp) {
         this.id = id;
         this.fechaIngeso = fechaIngeso;

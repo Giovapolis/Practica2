@@ -334,8 +334,8 @@ public class reciboA6 extends javax.swing.JFrame {
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSource datasource = new EmpleadosDataSource();
-        Utileria asist;
-        asist = new Utileria(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
+        UtileriaA6 asist;
+        asist = new UtileriaA6(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),
                 jTextFieldRFC.getText(), (float) 200, jTextFieldDiastrab.getText(), jTextFieldFaltas.getText(),
         jTextFieldEmpresa.getText(),logo);
@@ -352,13 +352,13 @@ public class reciboA6 extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
 
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/Recibo.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/ReciboA6.pdf");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
         Archivo abrir = new Archivo();
-        abrir.abrirarchivo("src/practica2/Recibo.pdf");
+        abrir.abrirarchivo("src/practica2/ReciboA6.pdf");
     }//GEN-LAST:event_confirmaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

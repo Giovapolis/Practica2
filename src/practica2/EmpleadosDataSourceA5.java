@@ -15,9 +15,9 @@ import net.sf.jasperreports.engine.JRField;
  *
  * @author mvillanuevas
  */
-public class EmpleadosDataSource implements JRDataSource {
+public class EmpleadosDataSourceA5 implements JRDataSource {
 
-    private List<UtileriaA6> RegEmpleado = new ArrayList<UtileriaA6>();
+    private List<UtileriaA5> RegEmpleado = new ArrayList<UtileriaA5>();
     private int indiceParticipanteActual = -1;
 
     @Override
@@ -25,7 +25,7 @@ public class EmpleadosDataSource implements JRDataSource {
         return ++indiceParticipanteActual < RegEmpleado.size();
     }
 
-    public void addAsistente(UtileriaA6 Empleado) {
+    public void addAsistente(UtileriaA5 Empleado) {
 
         this.RegEmpleado.add(Empleado);
 
@@ -54,9 +54,21 @@ public class EmpleadosDataSource implements JRDataSource {
             
             valor = RegEmpleado.get(indiceParticipanteActual).getMaterno();
             
+        } else if ("Edad".equals(jrf.getName())) {
+            
+            valor = RegEmpleado.get(indiceParticipanteActual).getEdad();
+            
         } else if ("RFC".equals(jrf.getName())) {
             
             valor = RegEmpleado.get(indiceParticipanteActual).getRFC();
+            
+        } else if ("CURP".equals(jrf.getName())) {
+            
+            valor = RegEmpleado.get(indiceParticipanteActual).getCURP();
+            
+        } else if ("Correo".equals(jrf.getName())) {
+            
+            valor = RegEmpleado.get(indiceParticipanteActual).getCorreo();
             
         } else if ("Sueldo".equals(jrf.getName())) {
             
