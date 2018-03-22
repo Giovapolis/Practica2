@@ -8,13 +8,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Consultas {
     
-    public DefaultTableModel Consulta(String tabla){
+    public DefaultTableModel Consulta(String sql){
          try {
               Statement st = lanzador.conexion.conectado().createStatement();
-              
-              String sql;
-              sql = "SELECT * FROM "+tabla;
-              
+                            
               ResultSet rstb = st.executeQuery(sql);
               ResultSetMetaData rscol = rstb.getMetaData();
               int numCol = rscol.getColumnCount();
@@ -36,36 +33,5 @@ public class Consultas {
               return null;
          }
          
-    }
-    
-    public DefaultTableModel ConsultaEmp(){
-         try {
-              Statement st = lanzador.conexion.conectado().createStatement();
-              
-              String sql;
-              sql = "SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO";
-              
-              ResultSet rstb = st.executeQuery(sql);
-              ResultSetMetaData rscol = rstb.getMetaData();
-              int numCol = rscol.getColumnCount();
-              DefaultTableModel modelo = new DefaultTableModel();
-              for (int i = 1; i <= numCol; i++) {
-                   modelo.addColumn(rscol.getColumnLabel(i));
-              }
-              while (rstb.next()) {                   
-                   String filas[] = new String[numCol];
-                   for (int j = 0; j < numCol; j++) {
-                        filas[j] = rstb.getString(j+1);
-                   }
-                   modelo.addRow(filas);
-              }
-              return modelo;
-              
-         } catch (Exception e) {
-              JOptionPane.showMessageDialog(null, "Error al cargar la Tabla\n"+e );
-              return null;
-         }
-         
-    }
-    
+    }    
 }

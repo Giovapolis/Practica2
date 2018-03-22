@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import utilidades.Archivo;
 import utilidades.Conectar;
 import utilidades.Empleado;
 
@@ -18,6 +19,9 @@ public class lanzador {
     public static reciboA6 recibo1 = new reciboA6();
     public static reciboA5 recibo2 = new reciboA5();
     public static utilidades.Empleado empleado = new Empleado();
+    public static utilidades.Archivo archivo = new Archivo();
+    public static UtileriaA6 u6 = new UtileriaA6();
+    public static UtileriaA5 u5 = new UtileriaA5();
 
     //Clase que inicia todo el proyecto
     public static void main(String args[]){

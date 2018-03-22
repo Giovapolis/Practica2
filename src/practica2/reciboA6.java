@@ -294,8 +294,8 @@ public class reciboA6 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_logoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoActionPerformed
-        utilidades.Archivo a = new Archivo();
-        logo = a.Selector();
+
+        logo = lanzador.archivo.Selector();
         System.out.println(logo);
     }//GEN-LAST:event_btn_logoActionPerformed
 
@@ -333,12 +333,12 @@ public class reciboA6 extends javax.swing.JFrame {
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSource datasource = new EmpleadosDataSource();
-        UtileriaA6 asist;
-        asist = new UtileriaA6(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
+
+        lanzador.u6 = new UtileriaA6(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),
                 jTextFieldRFC.getText(), (float) 200, jTextFieldDiastrab.getText(), jTextFieldFaltas.getText(),
         jTextFieldEmpresa.getText(),logo);
-        datasource.addAsistente(asist);
+        datasource.addAsistente(lanzador.u6);
 
         try {
             inputStream = new FileInputStream("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.jrxml");
@@ -352,7 +352,8 @@ public class reciboA6 extends javax.swing.JFrame {
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
 
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
-
+            System.out.println("Archivo PDF Generado");
+            
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }

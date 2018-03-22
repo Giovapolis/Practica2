@@ -70,36 +70,6 @@ public class Empleado {
         con = new Conectar();
     }
 
-    public ArrayList ConsultaEmpleado(JTable tabla) throws Exception {
-        ArrayList<Object[]> data = new ArrayList<>();
-        try {
-            PreparedStatement pstm = con.conectado().prepareStatement("SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
-                    + "ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO");
-            ResultSet rst = pstm.executeQuery();
-            ResultSetMetaData rsm = rst.getMetaData();
-
-            ArrayList<Object[]> datos = new ArrayList<>();
-            while (rst.next()) {
-                Object[] filas = new Object[rsm.getColumnCount()];
-                for (int i = 0; i < filas.length; i++) {
-                    filas[i] = rst.getObject(i + 1);
-                    
-                }
-                datos.add(filas);
-            }
-            dtm = (DefaultTableModel) tabla.getModel();
-            for (int i = 0; i < datos.size(); i++) {
-                dtm.addRow(datos.get(i));
-                System.out.println(datos.get(i));
-            }
-            //Desconexion de la BD
-            con.desconectar();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error en la base de Datos Consulta EMPLEADOS", "Aceptar", 1);
-        }
-        return data;
-    }
-
     public boolean Verificar(String rfc) {
         boolean v = false;
         try {

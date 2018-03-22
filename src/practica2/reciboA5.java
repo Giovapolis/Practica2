@@ -381,13 +381,13 @@ public class reciboA5 extends javax.swing.JFrame {
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSourceA5 datasource5 = new EmpleadosDataSourceA5();
-        UtileriaA5 asist;
+
         String sueldo = "220";
-        asist = new UtileriaA5(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
+        lanzador.u5 = new UtileriaA5(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),jTextFieldEdad.getText(),
                 jTextFieldRFC.getText(), jTextFieldCURP.getText(),jTextFielCorreo.getText(),sueldo, jTextFieldDiastrab.getText(), 
                 jTextFieldFaltas.getText(),jTextFieldEmpresa.getText(),logo);
-        datasource5.addAsistente(asist);
+        datasource5.addAsistente(lanzador.u5);
 
         try {
             inputStream = new FileInputStream("src/practica2/ReporteA5/A5.jrxml");
@@ -401,6 +401,7 @@ public class reciboA5 extends javax.swing.JFrame {
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource5);
 
             JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/ReporteA5/A5.pdf");
+            System.out.println("Archivo PDF Generado");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());

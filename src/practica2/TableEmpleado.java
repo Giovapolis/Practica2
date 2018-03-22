@@ -18,8 +18,8 @@ public class TableEmpleado extends javax.swing.JFrame {
 
     PlaceHolder holder;
     utilidades.Empleado empleado = new Empleado();
-    UtileriaA6 u;
-
+    String sql = sql = "SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
+            + "ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO";
     /**
      * Creates new form TableEmpleado
      */
@@ -28,14 +28,12 @@ public class TableEmpleado extends javax.swing.JFrame {
         holder = new PlaceHolder(jTextFieldBuscar, "RFC...");
         jTableEmpleado.requestFocus();
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
-        //empleado.ConsultaEmpleado(jTableEmpleado);
-        jTableEmpleado.setModel( lanzador.consulta.ConsultaEmp() );
+        jTableEmpleado.setModel( lanzador.consulta.Consulta(sql));
         setLocationRelativeTo(null);
-        u = new UtileriaA6();
     }
 
     public void Check(int c) {
-        u.setCheck(c);
+        lanzador.u6.setCheck(c);
     }
 
     /**
@@ -156,40 +154,39 @@ public class TableEmpleado extends javax.swing.JFrame {
         String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
         String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
         
-        System.out.println(u.getCheck());
+        System.out.println(lanzador.u6.getCheck());
         
-        if (u.getCheck() == 1) {
+        if (lanzador.u6.getCheck() == 1) {
             
-            reciboA6 r = lanzador.recibo1;
-            r.jTextFieldId.setText(id);
-            r.jTextFieldEmpresa.setText(empresa);
-            r.jTextFieldFingreso.setText(ingreso);
-            r.jTextFieldNombre.setText(nombre);
-            r.jTextFieldaterno.setText(paterno);
-            r.jTextFieldMaterno.setText(materno);
-            r.jTextFieldRFC.setText(rfc);
-            r.jTextFieldDiastrab.setText(dtrab);
-            r.jTextFieldFaltas.setText(faltas);
+            lanzador.recibo1.jTextFieldId.setText(id);
+            lanzador.recibo1.jTextFieldEmpresa.setText(empresa);
+            lanzador.recibo1.jTextFieldFingreso.setText(ingreso);
+            lanzador.recibo1.jTextFieldNombre.setText(nombre);
+            lanzador.recibo1.jTextFieldaterno.setText(paterno);
+            lanzador.recibo1.jTextFieldMaterno.setText(materno);
+            lanzador.recibo1.jTextFieldRFC.setText(rfc);
+            lanzador.recibo1.jTextFieldDiastrab.setText(dtrab);
+            lanzador.recibo1.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
-            r.setVisible(true);
+            lanzador.recibo1.setVisible(true);
             dispose();
             
-        }else if(u.getCheck() == 2){
-            reciboA5 r = lanzador.recibo2;
-            r.jTextFieldId.setText(id);
-            r.jTextFieldEmpresa.setText(empresa);
-            r.jTextFieldFingreso.setText(ingreso);
-            r.jTextFieldNombre.setText(nombre);
-            r.jTextFieldaterno.setText(paterno);
-            r.jTextFieldMaterno.setText(materno);
-            r.jTextFieldEdad.setText(edad);
-            r.jTextFieldRFC.setText(rfc);
-            r.jTextFieldCURP.setText(curp);
-            r.jTextFielCorreo.setText(correo);
-            r.jTextFieldDiastrab.setText(dtrab);
-            r.jTextFieldFaltas.setText(faltas);
+        }else if(lanzador.u6.getCheck() == 2){
+            
+            lanzador.recibo2.jTextFieldId.setText(id);
+            lanzador.recibo2.jTextFieldEmpresa.setText(empresa);
+            lanzador.recibo2.jTextFieldFingreso.setText(ingreso);
+            lanzador.recibo2.jTextFieldNombre.setText(nombre);
+            lanzador.recibo2.jTextFieldaterno.setText(paterno);
+            lanzador.recibo2.jTextFieldMaterno.setText(materno);
+            lanzador.recibo2.jTextFieldEdad.setText(edad);
+            lanzador.recibo2.jTextFieldRFC.setText(rfc);
+            lanzador.recibo2.jTextFieldCURP.setText(curp);
+            lanzador.recibo2.jTextFielCorreo.setText(correo);
+            lanzador.recibo2.jTextFieldDiastrab.setText(dtrab);
+            lanzador.recibo2.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
-            r.setVisible(true);
+            lanzador.recibo2.setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_jTableEmpleadoMouseClicked

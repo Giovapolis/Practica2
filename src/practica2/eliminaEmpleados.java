@@ -7,10 +7,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class eliminaEmpleados extends javax.swing.JFrame {
-
+    
+    String sql = "SELECT * FROM EMPLEADO";
+    
     public eliminaEmpleados() {
         initComponents();
-        tbl_emp.setModel( lanzador.consulta.Consulta("empleado") );
+        tbl_emp.setModel( lanzador.consulta.Consulta(sql) );
         setLocationRelativeTo(null);
     }
 
@@ -86,7 +88,7 @@ public class eliminaEmpleados extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        tbl_emp.setModel( lanzador.consulta.Consulta("empleado") );
+        tbl_emp.setModel( lanzador.consulta.Consulta(sql) );
         lanzador.menu_p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -98,7 +100,7 @@ public class eliminaEmpleados extends javax.swing.JFrame {
                     PreparedStatement pps = lanzador.conexion.conectado().prepareStatement("DELETE FROM empleado WHERE IDempleado='"+valor+"'");
                     pps.executeUpdate();
                     JOptionPane.showMessageDialog(null, "Eliminado");
-                    tbl_emp.setModel( lanzador.consulta.Consulta("empleado") );
+                    tbl_emp.setModel( lanzador.consulta.Consulta(sql) );
                 }catch (SQLException ex) {
                     Logger.getLogger(eliminaEmpleados.class.getName()).log(Level.SEVERE, null, ex);
                  }
