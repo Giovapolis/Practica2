@@ -10,7 +10,7 @@
 	<field name="Paterno" class="java.lang.String"/>
 	<field name="Materno" class="java.lang.String"/>
 	<field name="RFC" class="java.lang.String"/>
-	<field name="Sueldo" class="java.lang.Float"/>
+	<field name="Sueldo" class="java.lang.String"/>
 	<field name="LogoEmpresa" class="java.lang.String"/>
 	<field name="DiasTrab" class="java.lang.String"/>
 	<field name="Faltas" class="java.lang.String"/>

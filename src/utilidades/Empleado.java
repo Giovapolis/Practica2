@@ -6,12 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import jxl.Sheet;
 import jxl.Workbook;
+import practica2.lanzador;
 import utilidades.Conectar;
 
 public class Empleado {
@@ -81,13 +83,14 @@ public class Empleado {
                 Object[] filas = new Object[rsm.getColumnCount()];
                 for (int i = 0; i < filas.length; i++) {
                     filas[i] = rst.getObject(i + 1);
-
+                    
                 }
                 datos.add(filas);
             }
             dtm = (DefaultTableModel) tabla.getModel();
             for (int i = 0; i < datos.size(); i++) {
                 dtm.addRow(datos.get(i));
+                System.out.println(datos.get(i));
             }
             //Desconexion de la BD
             con.desconectar();

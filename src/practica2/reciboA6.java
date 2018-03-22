@@ -341,7 +341,7 @@ public class reciboA6 extends javax.swing.JFrame {
         datasource.addAsistente(asist);
 
         try {
-            inputStream = new FileInputStream("src/practica2/A6.jrxml");
+            inputStream = new FileInputStream("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.jrxml");
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "***Error al leer el fichero de carga jasper report " + ex.getMessage());
         }
@@ -351,13 +351,13 @@ public class reciboA6 extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
 
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/ReciboA6.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
         Archivo abrir = new Archivo();
-        abrir.abrirarchivo("src/practica2/ReciboA6.pdf");
+        abrir.abrirarchivo("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
     }//GEN-LAST:event_confirmaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

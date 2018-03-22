@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import utilidades.Conectar;
+import utilidades.Empleado;
 
 public class lanzador {
     public static menu menu_p = new menu();
@@ -16,6 +17,7 @@ public class lanzador {
     public static OpcionesImpresion opciones = new OpcionesImpresion();
     public static reciboA6 recibo1 = new reciboA6();
     public static reciboA5 recibo2 = new reciboA5();
+    public static utilidades.Empleado empleado = new Empleado();
 
     //Clase que inicia todo el proyecto
     public static void main(String args[]){

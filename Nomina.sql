@@ -42,6 +42,6 @@ CREATE TABLE Recibo(
 	FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado)
 );
 INSERT INTO Recibo(IDempleado,IDsueldo)
-VALUES("2","200")
+VALUES("2","200");
 INSERT INTO ASISTENCIA(IDempleado,diasTrab,faltas)
 VALUES("2","4","1");

@@ -29,7 +29,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         jTableEmpleado.requestFocus();
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
         //empleado.ConsultaEmpleado(jTableEmpleado);
-        jTableEmpleado.setModel( lanzador.consulta.Consulta("empleado") );
+        jTableEmpleado.setModel( lanzador.consulta.ConsultaEmp() );
         setLocationRelativeTo(null);
         u = new UtileriaA6();
     }
@@ -153,8 +153,8 @@ public class TableEmpleado extends javax.swing.JFrame {
         String curp = String.valueOf(jTableEmpleado.getValueAt(select, 9));
         String rfc = String.valueOf(jTableEmpleado.getValueAt(select, 10));
         String correo = String.valueOf(jTableEmpleado.getValueAt(select, 11));
-        //String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
-        //String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
+        String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
+        String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
         
         System.out.println(u.getCheck());
         
@@ -168,8 +168,8 @@ public class TableEmpleado extends javax.swing.JFrame {
             r.jTextFieldaterno.setText(paterno);
             r.jTextFieldMaterno.setText(materno);
             r.jTextFieldRFC.setText(rfc);
-            //r.jTextFieldDiastrab.setText(dtrab);
-            //r.jTextFieldFaltas.setText(faltas);
+            r.jTextFieldDiastrab.setText(dtrab);
+            r.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
             r.setVisible(true);
             dispose();
@@ -186,8 +186,8 @@ public class TableEmpleado extends javax.swing.JFrame {
             r.jTextFieldRFC.setText(rfc);
             r.jTextFieldCURP.setText(curp);
             r.jTextFielCorreo.setText(correo);
-            //r.jTextFieldDiastrab.setText(dtrab);
-            //r.jTextFieldFaltas.setText(faltas);
+            r.jTextFieldDiastrab.setText(dtrab);
+            r.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
             r.setVisible(true);
             dispose();

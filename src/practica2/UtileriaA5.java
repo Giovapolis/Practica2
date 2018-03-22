@@ -24,7 +24,7 @@ public class UtileriaA5 {
     private String RFC;
     private String CURP;
     private String correo;
-    private float sueldo;
+    private String sueldo;
     private String diastrab;
     private String faltas;
     private String Empresa;
@@ -36,7 +36,7 @@ public class UtileriaA5 {
 
     public UtileriaA5(int id, String fechaIngeso, String nombre, String paterno, 
             String materno, String edad, String RFC, String CURP, String correo, 
-            float sueldo, String diastrab, String faltas, String Empresa, String LogoEmp) {
+            String sueldo, String diastrab, String faltas, String Empresa, String LogoEmp) {
         this.id = id;
         this.fechaIngeso = fechaIngeso;
         this.nombre = nombre;
@@ -125,11 +125,11 @@ public class UtileriaA5 {
         this.correo = correo;
     }
 
-    public float getSueldo() {
+    public String getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(float sueldo) {
+    public void setSueldo(String sueldo) {
         this.sueldo = sueldo;
     }
 

@@ -38,6 +38,7 @@ public class EmpleadosDataSourceA5 implements JRDataSource {
         if ("IdEmp".equals(jrf.getName())) {
 
             valor = RegEmpleado.get(indiceParticipanteActual).getId();
+            
         }else if ("FechaIngreso".equals(jrf.getName())){
             
             valor = RegEmpleado.get(indiceParticipanteActual).getFechaIngeso();
