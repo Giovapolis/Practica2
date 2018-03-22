@@ -13,7 +13,10 @@ public class lanzador {
     public static Consultas consulta = new Consultas();
     public static eliminaEmpleados elim_emp = new eliminaEmpleados();
     public static altasEmpleados altas = new altasEmpleados();
-    
+    public static OpcionesImpresion opciones = new OpcionesImpresion();
+    public static reciboA6 recibo1 = new reciboA6();
+    public static reciboA5 recibo2 = new reciboA5();
+
     //Clase que inicia todo el proyecto
     public static void main(String args[]){
         try {

@@ -37,6 +37,11 @@ public class menu extends javax.swing.JFrame {
         });
 
         ver_reci.setText("Ver Recibos Generados");
+        ver_reci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ver_reciActionPerformed(evt);
+            }
+        });
 
         empleado_alta.setText("Alta de Empleado");
         empleado_alta.addActionListener(new java.awt.event.ActionListener() {
@@ -134,8 +139,7 @@ public class menu extends javax.swing.JFrame {
     private void genera_reciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genera_reciActionPerformed
         //Acciones de boton genera_reci
         this.dispose();
-        OpcionesImpresion imp = new OpcionesImpresion();
-        imp.setVisible(true);
+        lanzador.opciones.setVisible(true);
     }//GEN-LAST:event_genera_reciActionPerformed
 
     private void empleado_alta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_alta1ActionPerformed
@@ -149,6 +153,10 @@ public class menu extends javax.swing.JFrame {
         lanzador.altas.setVisible(true);
         dispose();
     }//GEN-LAST:event_empleado_altaActionPerformed
+
+    private void ver_reciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_reciActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ver_reciActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton empleado_alta;
