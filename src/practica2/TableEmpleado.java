@@ -28,7 +28,8 @@ public class TableEmpleado extends javax.swing.JFrame {
         holder = new PlaceHolder(jTextFieldBuscar, "RFC...");
         jTableEmpleado.requestFocus();
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
-        empleado.ConsultaEmpleado(jTableEmpleado);
+        //empleado.ConsultaEmpleado(jTableEmpleado);
+        jTableEmpleado.setModel( lanzador.consulta.Consulta("empleado") );
         setLocationRelativeTo(null);
         u = new UtileriaA6();
     }
@@ -47,39 +48,16 @@ public class TableEmpleado extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableEmpleado = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldBuscar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEmpleado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTableEmpleado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id", "Empresa", "Fecha de ingreso", "Nombre", "Paterno", "Materno", "Edad", "Telefono", "Celular", "Curp", "RFC", "Correo", "Cargo", "Calle", "Num Int", "Num Ext", "Colonia", "Municipio", "Estado", "Dias Trabajados", "Faltas"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableEmpleadoMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableEmpleado);
 
         jLabel1.setText("Buscar Empleado:");
 
@@ -92,6 +70,24 @@ public class TableEmpleado extends javax.swing.JFrame {
             }
         });
 
+        jTableEmpleado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTableEmpleado.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEmpleadoMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableEmpleado);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,7 +95,7 @@ public class TableEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -120,8 +116,8 @@ public class TableEmpleado extends javax.swing.JFrame {
                     .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -139,8 +135,12 @@ public class TableEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        lanzador.recibo1.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jTableEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadoMouseClicked
-        // TODO add your handling code here:
         
         int select = jTableEmpleado.rowAtPoint(evt.getPoint());
         String id = String.valueOf(jTableEmpleado.getValueAt(select, 0));
@@ -153,14 +153,14 @@ public class TableEmpleado extends javax.swing.JFrame {
         String curp = String.valueOf(jTableEmpleado.getValueAt(select, 9));
         String rfc = String.valueOf(jTableEmpleado.getValueAt(select, 10));
         String correo = String.valueOf(jTableEmpleado.getValueAt(select, 11));
-        String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
-        String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
+        //String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
+        //String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
         
         System.out.println(u.getCheck());
         
         if (u.getCheck() == 1) {
             
-            reciboA6 r = new reciboA6();
+            reciboA6 r = lanzador.recibo1;
             r.jTextFieldId.setText(id);
             r.jTextFieldEmpresa.setText(empresa);
             r.jTextFieldFingreso.setText(ingreso);
@@ -168,14 +168,14 @@ public class TableEmpleado extends javax.swing.JFrame {
             r.jTextFieldaterno.setText(paterno);
             r.jTextFieldMaterno.setText(materno);
             r.jTextFieldRFC.setText(rfc);
-            r.jTextFieldDiastrab.setText(dtrab);
-            r.jTextFieldFaltas.setText(faltas);
+            //r.jTextFieldDiastrab.setText(dtrab);
+            //r.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
             r.setVisible(true);
             dispose();
             
         }else if(u.getCheck() == 2){
-            reciboA5 r = new reciboA5();
+            reciboA5 r = lanzador.recibo2;
             r.jTextFieldId.setText(id);
             r.jTextFieldEmpresa.setText(empresa);
             r.jTextFieldFingreso.setText(ingreso);
@@ -186,18 +186,13 @@ public class TableEmpleado extends javax.swing.JFrame {
             r.jTextFieldRFC.setText(rfc);
             r.jTextFieldCURP.setText(curp);
             r.jTextFielCorreo.setText(correo);
-            r.jTextFieldDiastrab.setText(dtrab);
-            r.jTextFieldFaltas.setText(faltas);
+            //r.jTextFieldDiastrab.setText(dtrab);
+            //r.jTextFieldFaltas.setText(faltas);
             TableEmpleado.this.setVisible(false);
             r.setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_jTableEmpleadoMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        lanzador.recibo1.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -243,7 +238,7 @@ public class TableEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableEmpleado;
     private javax.swing.JTextField jTextFieldBuscar;
     // End of variables declaration//GEN-END:variables
