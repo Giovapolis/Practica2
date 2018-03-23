@@ -1,6 +1,7 @@
 package practica2;
 
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,4 +35,23 @@ public class Consultas {
          }
          
     }    
+    
+    public ArrayList<String> llenaCombo(){
+        ArrayList<String> lista = new ArrayList<String>();
+        
+        try {
+            Statement sentencia = lanzador.conexion.conectado().createStatement();
+            ResultSet resultados = sentencia.executeQuery("SELECT * FROM empleado");
+            
+            while (resultados.next()) {                
+                lista.add(resultados.getString("IDempleado"));
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+        
+        return lista;
+    } 
+    
 }

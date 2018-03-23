@@ -22,6 +22,7 @@ public class lanzador {
     public static utilidades.Archivo archivo = new Archivo();
     public static UtileriaA6 u6 = new UtileriaA6();
     public static UtileriaA5 u5 = new UtileriaA5();
+    public static horas asig = new horas();
 
     //Clase que inicia todo el proyecto
     public static void main(String args[]){
