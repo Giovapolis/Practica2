@@ -128,7 +128,7 @@ public class horas extends javax.swing.JFrame {
             pst.setInt(3, Integer.parseInt( faltas.getText() ));
             
             if ( pst.executeUpdate() > 0 ){
-                    JOptionPane.showMessageDialog(null, "Datos Ingresados");
+                    JOptionPane.showMessageDialog(null, "Datos Ingresados Correctamente");
             }
         } catch (Exception e) {
             System.out.println("Error al ingresar los datos");

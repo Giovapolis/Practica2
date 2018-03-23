@@ -167,7 +167,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_empleado_altaActionPerformed
 
     private void ver_reciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ver_reciActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ver_reciActionPerformed
 
     private void genera_reciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genera_reciActionPerformed
