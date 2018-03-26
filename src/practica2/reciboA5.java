@@ -65,7 +65,7 @@ public class reciboA5 extends javax.swing.JFrame {
 
         jLabel14.setText("jLabel14");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -190,22 +190,20 @@ public class reciboA5 extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                             .addGroup(jPanelEmpleadoLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(30, 30, 30))
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel15))
+                                .addGroup(jPanelEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15))
+                                .addGap(17, 17, 17)))
                         .addGroup(jPanelEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                             .addComponent(jTextFieldMaterno)
                             .addComponent(jTextFieldNombre)
                             .addComponent(jTextFieldRFC)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEmpleadoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelEmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldCURP, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFielCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldEdad, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                            .addComponent(jTextFieldCURP, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFielCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldEdad, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanelEmpleadoLayout.setVerticalGroup(
