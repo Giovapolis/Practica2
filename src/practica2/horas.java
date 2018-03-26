@@ -2,8 +2,6 @@ package practica2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import javax.swing.JLabel;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
