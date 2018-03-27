@@ -62,6 +62,7 @@ public class reciboA5 extends javax.swing.JFrame {
         confirma = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
+        jButton2 = new javax.swing.JButton();
 
         jLabel14.setText("jLabel14");
 
@@ -277,6 +278,13 @@ public class reciboA5 extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Calcular Saldo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -300,7 +308,9 @@ public class reciboA5 extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(206, 206, 206)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButton2)
+                        .addGap(64, 64, 64)
                         .addComponent(confirma, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -321,7 +331,8 @@ public class reciboA5 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirma)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
@@ -408,10 +419,20 @@ public class reciboA5 extends javax.swing.JFrame {
         abrir.abrirarchivo("src/practica2/ReporteA5/A5.pdf");
     }//GEN-LAST:event_confirmaActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int dias = Integer.parseInt(jTextFieldDiastrab.getText());
+        int faltas = Integer.parseInt(jTextFieldFaltas.getText());
+        
+        double saldo = 88.36*(dias-faltas);
+        
+        jTextFieldSueldo.setText(String.valueOf(saldo));
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_logo;
     private javax.swing.JButton confirma;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
