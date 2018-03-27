@@ -215,7 +215,7 @@ public class TableEmpleado extends javax.swing.JFrame {
                     jTableEmpleado.setRowSelectionInterval(point, point);
                 }
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese un RFC");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
