@@ -8,6 +8,7 @@ package practica2;
 import com.placeholder.PlaceHolder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import utilidades.Empleado;
 
 /**
@@ -16,19 +17,20 @@ import utilidades.Empleado;
  */
 public class TableEmpleado extends javax.swing.JFrame {
 
-    PlaceHolder holder;
+    PlaceHolder holder; String h = "RFC...";
     utilidades.Empleado empleado = new Empleado();
     String sql = sql = "SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
             + "ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO";
+
     /**
      * Creates new form TableEmpleado
      */
     public TableEmpleado() throws Exception {
         initComponents();
-        holder = new PlaceHolder(jTextFieldBuscar, "RFC...");
+        holder = new PlaceHolder(jTextFieldBuscar, h);
         jTableEmpleado.requestFocus();
         setExtendedState(MAXIMIZED_BOTH);// se inicia el frame maximizado
-        jTableEmpleado.setModel( lanzador.consulta.Consulta(sql));
+        jTableEmpleado.setModel(lanzador.consulta.Consulta(sql));
         setLocationRelativeTo(null);
     }
 
@@ -144,7 +146,7 @@ public class TableEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTableEmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmpleadoMouseClicked
-        
+
         int select = jTableEmpleado.rowAtPoint(evt.getPoint());
         String id = String.valueOf(jTableEmpleado.getValueAt(select, 0));
         String empresa = String.valueOf(jTableEmpleado.getValueAt(select, 1));
@@ -158,11 +160,11 @@ public class TableEmpleado extends javax.swing.JFrame {
         String correo = String.valueOf(jTableEmpleado.getValueAt(select, 11));
         String dtrab = String.valueOf(jTableEmpleado.getValueAt(select, 19));
         String faltas = String.valueOf(jTableEmpleado.getValueAt(select, 20));
-        
+
         System.out.println(lanzador.u6.getCheck());
-        
+
         if (lanzador.u6.getCheck() == 1) {
-            
+
             lanzador.recibo1.jTextFieldId.setText(id);
             lanzador.recibo1.jTextFieldEmpresa.setText(empresa);
             lanzador.recibo1.jTextFieldFingreso.setText(ingreso);
@@ -175,9 +177,9 @@ public class TableEmpleado extends javax.swing.JFrame {
             TableEmpleado.this.setVisible(false);
             lanzador.recibo1.setVisible(true);
             dispose();
-            
-        }else if(lanzador.u6.getCheck() == 2){
-            
+
+        } else if (lanzador.u6.getCheck() == 2) {
+
             lanzador.recibo2.jTextFieldId.setText(id);
             lanzador.recibo2.jTextFieldEmpresa.setText(empresa);
             lanzador.recibo2.jTextFieldFingreso.setText(ingreso);
@@ -201,16 +203,20 @@ public class TableEmpleado extends javax.swing.JFrame {
         String rfc = jTextFieldBuscar.getText();
         String b;
         int point;
-        
+
         int row = jTableEmpleado.getRowCount();
 
-        
-        for (int i = 0; i < row; i++) {
-            
-            if( rfc.equals(b = String.valueOf(jTableEmpleado.getValueAt(i, 10)))){
-                point = i;
-                jTableEmpleado.setRowSelectionInterval(point,point);
+        if (rfc != h || rfc != "") {
+
+            for (int i = 0; i < row; i++) {
+
+                if (rfc.equals(b = String.valueOf(jTableEmpleado.getValueAt(i, 10)))) {
+                    point = i;
+                    jTableEmpleado.setRowSelectionInterval(point, point);
+                }
             }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ingrese un RFC");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
