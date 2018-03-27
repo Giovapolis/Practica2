@@ -201,7 +201,7 @@ public class TableEmpleado extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String rfc = jTextFieldBuscar.getText();
-        String b;
+        String b;  
         int point;
 
         int row = jTableEmpleado.getRowCount();
