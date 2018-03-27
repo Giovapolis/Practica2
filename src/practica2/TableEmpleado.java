@@ -60,6 +60,11 @@ public class TableEmpleado extends javax.swing.JFrame {
         jLabel1.setText("Buscar Empleado:");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +195,24 @@ public class TableEmpleado extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jTableEmpleadoMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String rfc = jTextFieldBuscar.getText();
+        String b;
+        int point;
+        
+        int row = jTableEmpleado.getRowCount();
+
+        
+        for (int i = 0; i < row; i++) {
+            
+            if( rfc.equals(b = String.valueOf(jTableEmpleado.getValueAt(i, 10)))){
+                point = i;
+                jTableEmpleado.setRowSelectionInterval(point,point);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
