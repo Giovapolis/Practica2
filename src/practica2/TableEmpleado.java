@@ -19,7 +19,7 @@ public class TableEmpleado extends javax.swing.JFrame {
 
     PlaceHolder holder; String h = "RFC...";
     utilidades.Empleado empleado = new Empleado();
-    String sql = sql = "SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
+    String sql = "SELECT DISTINCT EMPLEADO.*, ASISTENCIA.DIASTRAB, "
             + "ASISTENCIA.FALTAS FROM EMPLEADO, ASISTENCIA WHERE ASISTENCIA.IDEMPLEADO = EMPLEADO.IDEMPLEADO";
 
     /**
