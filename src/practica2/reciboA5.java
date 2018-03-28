@@ -419,11 +419,15 @@ public class reciboA5 extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int dias = Integer.parseInt(jTextFieldDiastrab.getText());
-        int faltas = Integer.parseInt(jTextFieldFaltas.getText());
-        
-        saldo = (float) (88.36*(dias-faltas));
-        
+        int dias = 0, faltas = 0;
+        try {
+            dias = Integer.parseInt(jTextFieldDiastrab.getText());
+            faltas = Integer.parseInt(jTextFieldFaltas.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe cargar primero los datos del empleado - " + e.getMessage());
+        }
+
+        saldo = (float) (88.36 * (dias - faltas));
         jTextFieldSueldo.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton2ActionPerformed
 

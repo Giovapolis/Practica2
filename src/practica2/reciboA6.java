@@ -1,6 +1,5 @@
 package practica2;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -18,7 +17,10 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import utilidades.*;
 
 public class reciboA6 extends javax.swing.JFrame {
-    String logo; float saldo;
+
+    String logo;
+    float saldo;
+
     public reciboA6() {
         initComponents();
         setLocationRelativeTo(null);
@@ -342,15 +344,15 @@ public class reciboA6 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDiastrabActionPerformed
 
     private void confirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaActionPerformed
-        
+
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSource datasource = new EmpleadosDataSource();
 
-        lanzador.u6 = new UtileriaA6(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
+        lanzador.u6 = new UtileriaA6(Integer.valueOf(jTextFieldId.getText()), jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),
                 jTextFieldRFC.getText(), saldo, jTextFieldDiastrab.getText(), jTextFieldFaltas.getText(),
-        jTextFieldEmpresa.getText(),logo);
+                jTextFieldEmpresa.getText(), logo);
         datasource.addAsistente(lanzador.u6);
 
         try {
@@ -366,7 +368,7 @@ public class reciboA6 extends javax.swing.JFrame {
 
             JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
             System.out.println("Archivo PDF Generado");
-            
+
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
@@ -375,12 +377,17 @@ public class reciboA6 extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int dias = Integer.parseInt(jTextFieldDiastrab.getText());
-        int faltas = Integer.parseInt(jTextFieldFaltas.getText());
+        int dias = 0, faltas = 0;
+        try {
+            dias = Integer.parseInt(jTextFieldDiastrab.getText());
+            faltas = Integer.parseInt(jTextFieldFaltas.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe cargar primero los datos del empleado - " + e.getMessage());
+        }
 
-        saldo = (float) (88.36*(dias-faltas));
-
+        saldo = (float) (88.36 * (dias - faltas));
         jTextFieldSueldo.setText(String.valueOf(saldo));
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
