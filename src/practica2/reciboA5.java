@@ -426,7 +426,7 @@ public class reciboA5 extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Debe cargar primero los datos del empleado - " + e.getMessage());
         }
-
+   
         saldo = (float) (88.36 * (dias - faltas));
         jTextFieldSueldo.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton2ActionPerformed
