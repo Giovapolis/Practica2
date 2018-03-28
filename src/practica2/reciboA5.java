@@ -17,7 +17,7 @@ import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import utilidades.*;
 
 public class reciboA5 extends javax.swing.JFrame {
-    String logo;
+    String logo; float saldo;
     public reciboA5() {
         initComponents();
         setLocationRelativeTo(null);
@@ -391,10 +391,9 @@ public class reciboA5 extends javax.swing.JFrame {
         JasperPrint jasperPrint = null;
         EmpleadosDataSourceA5 datasource5 = new EmpleadosDataSourceA5();
 
-        String sueldo = "220";
         lanzador.u5 = new UtileriaA5(Integer.valueOf(jTextFieldId.getText()),jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(),jTextFieldEdad.getText(),
-                jTextFieldRFC.getText(), jTextFieldCURP.getText(),jTextFielCorreo.getText(),sueldo, jTextFieldDiastrab.getText(), 
+                jTextFieldRFC.getText(), jTextFieldCURP.getText(),jTextFielCorreo.getText(),saldo, jTextFieldDiastrab.getText(), 
                 jTextFieldFaltas.getText(),jTextFieldEmpresa.getText(),logo);
         datasource5.addAsistente(lanzador.u5);
 
@@ -423,7 +422,7 @@ public class reciboA5 extends javax.swing.JFrame {
         int dias = Integer.parseInt(jTextFieldDiastrab.getText());
         int faltas = Integer.parseInt(jTextFieldFaltas.getText());
         
-        double saldo = 88.36*(dias-faltas);
+        saldo = (float) (88.36*(dias-faltas));
         
         jTextFieldSueldo.setText(String.valueOf(saldo));
     }//GEN-LAST:event_jButton2ActionPerformed
