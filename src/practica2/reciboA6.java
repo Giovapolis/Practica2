@@ -385,8 +385,10 @@ public class reciboA6 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe cargar primero los datos del empleado - " + e.getMessage());
         }
 
-        saldo = (float) (88.36 * (dias - faltas));
-        jTextFieldSueldo.setText(String.valueOf(saldo));
+        if (dias != 0 && faltas != 0) {
+            saldo = (float) (88.36 * (dias - faltas));
+            jTextFieldSueldo.setText(String.valueOf(saldo));
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
