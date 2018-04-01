@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
+/*
+Se mandan a llamar estas clases por si existe alguna ventana que requiera
+consultar la base de datos para traer informacion
+*/
 
 public class Consultas {
     

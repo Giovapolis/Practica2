@@ -9,6 +9,7 @@ import utilidades.Conectar;
 import utilidades.Empleado;
 
 public class lanzador {
+    //Declaracion de Variables a utilizar
     public static menu menu_p = new menu();
     public static reciboA6 generar = new reciboA6();
     public static Conectar conexion = new Conectar();

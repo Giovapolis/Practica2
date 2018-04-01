@@ -2,6 +2,8 @@ package practica2;
 
 public class OpcionesImpresion extends javax.swing.JFrame {
 
+    //Clase para dar a conocer los formatos de impresion
+    
     public OpcionesImpresion() {
         initComponents();
         setLocationRelativeTo(null);

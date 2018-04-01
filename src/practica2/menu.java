@@ -3,7 +3,8 @@ package practica2;
 import utilidades.Archivo;
 import utilidades.Empleado;
 
-public class menu extends javax.swing.JFrame {
+//Clase donde se muestran las opciones a realizar por el programa
+public class menu extends javax.swing.JFrame { 
 
     public menu() {
         initComponents();
@@ -148,12 +149,14 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_genera_reci1ActionPerformed
 
     private void empleado_alta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_alta1ActionPerformed
+        //Mustra la ventana para eliminar un empleado
         this.dispose();
         lanzador.elim_emp.setVisible(true);
         dispose();
     }//GEN-LAST:event_empleado_alta1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Mustra la ventana para cargar un archivo con varios empleados para dar de alta
         utilidades.Archivo excel = new Archivo();
         String ruta = excel.SelectorExcel();
         utilidades.Empleado cargar = new Empleado();
@@ -161,6 +164,7 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void empleado_altaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_altaActionPerformed
+        //Mustra la ventana para dar de alta un empleado
         this.dispose();
         lanzador.altas.setVisible(true);
         dispose();
