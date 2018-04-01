@@ -7,10 +7,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Archivo {
 
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg","png");
-    private FileNameExtensionFilter filterE = new FileNameExtensionFilter("Archivos de Excel", "xls");
+    private FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "jpeg","png");// filtros para elegir la imagen de la empresa
+    private FileNameExtensionFilter filterE = new FileNameExtensionFilter("Archivos de Excel", "xls");// filtros para elegir el archivo de carga masiva de empleados
 
-    public void abrirarchivo(String archivo) {
+    public void abrirarchivo(String archivo) { // Funcion que abfre el recibo despues de su creacion
         try {
             File objetofile = new File(archivo);
             Desktop.getDesktop().open(objetofile);
@@ -20,7 +20,7 @@ public class Archivo {
         }
     }
 
-    public String Selector() {
+    public String Selector() { // Selector que escoge la imgen de acuerdo a los filtros
         String ruta = null;
         JFileChooser jFileChooser3 = new JFileChooser();
         jFileChooser3.setFileFilter(filter);
@@ -31,7 +31,7 @@ public class Archivo {
         return ruta;
     }
    
-    public String SelectorExcel() {
+    public String SelectorExcel() { // Selector que escoge el archivo de carga masiva de acuerdo a los filtros
         String ruta = null;
         JFileChooser jFileChooser3 = new JFileChooser();
         jFileChooser3.setFileFilter(filterE);

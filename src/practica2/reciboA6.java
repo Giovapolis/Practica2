@@ -344,7 +344,7 @@ public class reciboA6 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldDiastrabActionPerformed
 
     private void confirmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmaActionPerformed
-
+        // Evento del boton para que invoca al archivo de Jaspert y generaar el recibo
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSource datasource = new EmpleadosDataSource();
@@ -356,7 +356,7 @@ public class reciboA6 extends javax.swing.JFrame {
         datasource.addAsistente(lanzador.u6);
 
         try {
-            inputStream = new FileInputStream("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.jrxml");
+            inputStream = new FileInputStream("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.jrxml"); // ruta del archivo de Jasper
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "***Error al leer el fichero de carga jasper report " + ex.getMessage());
         }
@@ -366,13 +366,13 @@ public class reciboA6 extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource);
 
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf"); // ruta donde se guardara el recibo
             System.out.println("Archivo PDF Generado");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
-        Archivo abrir = new Archivo();
+        Archivo abrir = new Archivo(); // funcio que abre el recibo generara de la ruta
         abrir.abrirarchivo("C:\\Users\\mvillanuevas\\Documents\\GitHub\\Practica2\\src\\practica2\\A6.pdf");
     }//GEN-LAST:event_confirmaActionPerformed
 
