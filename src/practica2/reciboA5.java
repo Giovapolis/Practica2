@@ -1,5 +1,6 @@
 package practica2;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -393,6 +394,8 @@ public class reciboA5 extends javax.swing.JFrame {
         InputStream inputStream = null;
         JasperPrint jasperPrint = null;
         EmpleadosDataSourceA5 datasource5 = new EmpleadosDataSourceA5();
+        File f = new File("A5.jrxml");
+        String ruta = null;
 
         lanzador.u5 = new UtileriaA5(Integer.valueOf(jTextFieldId.getText()), jTextFieldFingreso.getText(),
                 jTextFieldNombre.getText(), jTextFieldaterno.getText(), jTextFieldMaterno.getText(), jTextFieldEdad.getText(),
@@ -401,7 +404,7 @@ public class reciboA5 extends javax.swing.JFrame {
         datasource5.addAsistente(lanzador.u5);
 
         try {
-            inputStream = new FileInputStream("src/practica2/ReporteA5/A5.jrxml");
+            inputStream = new FileInputStream(f.getAbsolutePath());
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "***Error al leer el fichero de carga jasper report " + ex.getMessage());
         }
@@ -411,14 +414,14 @@ public class reciboA5 extends javax.swing.JFrame {
             JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
             jasperPrint = JasperFillManager.fillReport(jasperReport, null, datasource5);
 
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "src/practica2/ReporteA5/A5.pdf");
+            JasperExportManager.exportReportToPdfFile(jasperPrint, ruta = lanzador.archivo.guardarArchivo());
             System.out.println("Archivo PDF Generado");
 
         } catch (JRException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar fichero jrml jasper report " + e.getMessage());
         }
         Archivo abrir = new Archivo();
-        abrir.abrirarchivo("src/practica2/ReporteA5/A5.pdf");
+        abrir.abrirarchivo(ruta);
     }//GEN-LAST:event_confirmaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
