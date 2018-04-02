@@ -1,7 +1,7 @@
 CREATE DATABASE Nomina;
 USE Nomina;
 
-CREATE TABLE Empleado(
+CREATE TABLE IF NOT EXISTS Empleado(
 	IDempleado INT AUTO_INCREMENT,
 	nomEmpresa VARCHAR(40),
 	fechaIngreso DATE,
@@ -24,7 +24,7 @@ CREATE TABLE Empleado(
 	PRIMARY KEY(IDempleado)
 );
 
-CREATE TABLE Asistencia(
+CREATE TABLE IF NOT EXISTS Asistencia(
 	IDasistencia INT AUTO_INCREMENT,
 	IDempleado INT,
 	diasTrab INT,
@@ -33,15 +33,10 @@ CREATE TABLE Asistencia(
 	FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado)
 );
 
-CREATE TABLE Recibo(
+CREATE TABLE IF NOT EXISTS Recibo(
 	IDrecibo INT AUTO_INCREMENT,
 	IDempleado INT,
 	IDsueldo INT,
-	LOGO LONGBLOB,
 	PRIMARY KEY(IDrecibo),
 	FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado)
 );
-INSERT INTO Recibo(IDempleado,IDsueldo)
-VALUES("2","200");
-INSERT INTO ASISTENCIA(IDempleado,diasTrab,faltas)
-VALUES("2","4","1");

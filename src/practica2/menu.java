@@ -150,8 +150,9 @@ public class menu extends javax.swing.JFrame {
 
     private void empleado_alta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleado_alta1ActionPerformed
         //Mustra la ventana para eliminar un empleado
+        eliminaEmpleados elim_emp = new eliminaEmpleados();
         this.dispose();
-        lanzador.elim_emp.setVisible(true);
+        elim_emp.setVisible(true);
         dispose();
     }//GEN-LAST:event_empleado_alta1ActionPerformed
 

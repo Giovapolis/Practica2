@@ -40,7 +40,7 @@ public class TableEmpleado extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmpleado = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

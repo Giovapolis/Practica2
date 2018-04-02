@@ -70,7 +70,7 @@ public class reciboA5 extends javax.swing.JFrame {
 
         jLabel14.setText("jLabel14");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

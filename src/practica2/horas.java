@@ -28,7 +28,7 @@ public class horas extends javax.swing.JFrame {
         encontrado = new javax.swing.JLabel();
         id = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Altas Horas");
 
         jLabel1.setText("Registro Horas");

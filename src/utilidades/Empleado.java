@@ -70,6 +70,51 @@ public class Empleado {
         con = new Conectar();
     }
 
+    public void CrearTablas() {
+        try {
+            
+            String sql = "CREATE TABLE IF NOT EXISTS Empleado( "
+                    + "IDempleado INT AUTO_INCREMENT, "
+                    + "nomEmpresa VARCHAR(40), "
+                    + "fechaIngreso DATE, "
+                    + "NOMBRE VARCHAR(30) NOT NULL, "
+                    + "APATERNO VARCHAR(30) NOT NULL, "
+                    + "AMATERNO VARCHAR(30) NOT NULL, "
+                    + "EDAD INT NOT NULL, "
+                    + "TEL VARCHAR(15), "
+                    + "CEL VARCHAR(12), "
+                    + "RFC VARCHAR(13), "
+                    + "correo VARCHAR(30), "
+                    + "cargo VARCHAR(30), "
+                    + "CALLE TEXT, "
+                    + "NUM_INT VARCHAR(5), "
+                    + "NUM_EXT VARCHAR(5), "
+                    + "COLONIA TEXT, "
+                    + "MUNICIPIO TEXT, "
+                    + "ESTADO TEXT, "
+                    + "PRIMARY KEY(IDempleado)); "
+                    + "CREATE TABLE IF NOT EXISTS Asistencia( "
+                    + "IDasistencia INT AUTO_INCREMENT, "
+                    + "IDempleado INT, "
+                    + "diasTrab INT, "
+                    + "faltas INT, "
+                    + "PRIMARY KEY(IDasistencia), "
+                    + "FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado)); "
+                    + "CREATE TABLE IF NOT EXISTS Recibo( "
+                    + "IDrecibo INT AUTO_INCREMENT, "
+                    + "IDempleado INT, "
+                    + "IDsueldo INT, "
+                    + "PRIMARY KEY(IDrecibo), "
+                    + "FOREIGN KEY(IDempleado) REFERENCES Empleado(IDempleado));";
+
+            Statement st = con.conectado().createStatement();
+            st.executeUpdate(sql);
+            con.desconectar();
+        } catch (SQLException sqle) {
+            JOptionPane.showMessageDialog(null, "Error al crear tablas", "Aceptar", 1);
+        }
+    }
+
     public boolean Verificar(String rfc) {
         boolean v = false;
         try {
@@ -178,13 +223,13 @@ public class Empleado {
                                 + "NOMBRE, APATERNO, AMATERNO, EDAD,TEL, CEL, "
                                 + "CURP, RFC, CORREO, CARGO, CALLE, NUM_INT, "
                                 + "NUM_EXT,COLONIA, MUNICIPIO, ESTADO)"
-                                + " values('" + Empresa + "','" + fechaIngreso + "','" 
-                                + Nombre + "','" + Paterno + "','" + Materno + "','" 
-                                + Edad + "','" + Tel + "','" + Cel + "','" + CURP + "','" 
-                                + RFC + "','" + correo + "','" + Cargo + "','" + Calle + "','" 
-                                + Int + "','" + Ext + "','" + Colonia + "','" + Municipio + "','" 
+                                + " values('" + Empresa + "','" + fechaIngreso + "','"
+                                + Nombre + "','" + Paterno + "','" + Materno + "','"
+                                + Edad + "','" + Tel + "','" + Cel + "','" + CURP + "','"
+                                + RFC + "','" + correo + "','" + Cargo + "','" + Calle + "','"
+                                + Int + "','" + Ext + "','" + Colonia + "','" + Municipio + "','"
                                 + Estado + "');";
-                        PreparedStatement pstm = con.conectado().prepareStatement(sql);                        
+                        PreparedStatement pstm = con.conectado().prepareStatement(sql);
                         //Ejecucion de la sentencia insert
                         pstm.execute();
                     } else {

@@ -12,7 +12,7 @@ public class eliminaEmpleados extends javax.swing.JFrame {
     
     public eliminaEmpleados() {
         initComponents();
-        tbl_emp.setModel( lanzador.consulta.Consulta(sql) );
+        tbl_emp . setModel ( lanzador.consulta . Consulta (sql));
         setLocationRelativeTo(null);
     }
 
@@ -25,15 +25,12 @@ public class eliminaEmpleados extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
         tbl_emp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -111,6 +108,6 @@ public class eliminaEmpleados extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbl_emp;
+    public javax.swing.JTable tbl_emp;
     // End of variables declaration//GEN-END:variables
 }

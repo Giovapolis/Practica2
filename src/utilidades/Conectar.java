@@ -20,9 +20,7 @@ public class Conectar {
             if (con!=null) {
                 System.out.println("Conexion a "+bd);
             }
-        } catch (SQLException e) {
-            System.err.println(e);
-        } catch (ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException e) {
             System.err.println(e);
         }
     }
